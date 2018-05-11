@@ -1,0 +1,29 @@
+#!/bin/bash
+echo "猜拳开始："
+echo "石头"
+echo "剪刀"
+echo "布"
+read -p "请输入你猜的" cai
+case $cai in
+石头)
+a=0;;
+剪刀)
+a=1;;
+布)
+a=2;;
+*)
+echo 你想干吗？;;
+esac
+b=$[$RANDOM%3]
+let c=$a-$b
+case $c in
+-1)
+echo 恭喜你赢了;;
+2)
+echo 恭喜你赢了;;
+0)
+echo 平局;;
+*)
+echo 你输了;;
+esac
+
