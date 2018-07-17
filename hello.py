@@ -65,8 +65,8 @@
 #     print('success')
 # else:
 #     print('wrong')
-import random
-num=random.randint(1,100)
+# import random
+# num=random.randint(1,100)
 # cai=int(input('你猜的数字'))
 # if cai > num:
 #     print('猜大了')
@@ -95,30 +95,31 @@ num=random.randint(1,100)
 # b=20
 # s=a if a<b else b
 # print(s)
-import random
-choice=['石头','剪刀','布']
-computer=random.choice(choice)
-player=input('请出拳')
-print('你选择的是 %s, 计算机选择的是 %s' %(player,computer))
-def caiquan(i):
-    if i=='石头':
-        j=0
-    elif i=='剪刀':
-        j=1
-    elif i=='布':
-        j=2
-    else:
-        print('瞎几把输')
-        j=100
-    return j
-a=caiquan(computer)
-b=caiquan(player)
-c=b-a
-if c==-1 or c==2:
-    print('你赢了')
-elif c==0:
-    print('平局')
-elif c>10:
-    print('你特么是找死')
+# import random
+# choice=['石头','剪刀','布']
+# prompt = '''0.石头
+# 1.剪刀
+# 2.布
+# 请选择(0/1/2):'''
+# computer=random.randint(0,2)
+# player=int(input(prompt))
+# if player not in [0,1,2]:
+#     print('瞎选，默认是布')
+#     player=2
+# print('你选择的是 %s, 计算机选择的是 %s' %(choice[player],choice[computer]))
+# c=player-computer
+# if c==-1 or c==2:
+#     print('\033[31;1m你赢了\033[0m')
+# elif c==0:
+#     print('\033[32;1m平局\033[0m')
+# else:
+#     print('\033[31;1m你输了\033[0m')
+sum100 = 0
+counter = 0
+while counter < 100:
+    counter += 1
+    if counter % 2 :
+        continue
+    sum100 += counter
 else:
-    print('你输了')
+    print ("result is %d" % sum100)
