@@ -58,6 +58,7 @@
 #     print('xixi')
 # if '':
 #     print('lala')
+###################################################
 # import getpass
 # username=input('输入用户名')
 # password=getpass.getpass('密码')
@@ -65,6 +66,7 @@
 #     print('success')
 # else:
 #     print('wrong')
+#################################################
 # import random
 # num=random.randint(1,100)
 # cai=int(input('你猜的数字'))
@@ -75,6 +77,7 @@
 # else:
 #     print('恭喜')
 # print('正确的是',num)
+##################################################
 # num=int(input('成绩'))
 # print('成绩是',num)
 # if num > 100:
@@ -95,6 +98,7 @@
 # b=20
 # s=a if a<b else b
 # print(s)
+##################################################
 # import random
 # choice=['石头','剪刀','布']
 # prompt = '''0.石头
@@ -114,12 +118,58 @@
 #     print('\033[32;1m平局\033[0m')
 # else:
 #     print('\033[31;1m你输了\033[0m')
-sum100 = 0
-counter = 0
-while counter < 100:
-    counter += 1
-    if counter % 2 :
-        continue
-    sum100 += counter
+#################################################
+# sum100 = 0
+# counter = 0
+# while counter < 100:
+#     counter += 1
+#     if counter % 2 :
+#         continue
+#     sum100 += counter
+# print ("result is %d" % sum100)
+# import random
+# computer=random.randint(1,10)
+# counte=0
+# while counte<5:
+#     cai=int(input('请输入你猜的数字'))
+#     if computer > cai:
+#         print('猜小了')
+#     elif computer < cai:
+#         print('猜大了')
+#     else:
+#         print('猜对了')
+#         break
+#     counte+=1
+# else:
+#     print('正确的是',computer)
+###########################################################3
+import random
+choice=['石头','剪刀','布']
+prompt = '''0.石头
+1.剪刀
+2.布
+请选择(0/1/2):'''
+computer_win=2
+player_win=2
+while computer_win and player_win:
+    computer=random.randint(0,2)
+    player=int(input(prompt))
+    if player not in [0,1,2]:
+        print('瞎选，默认是布')
+        player=2
+    print('你选择的是 %s, 计算机选择的是 %s' %(choice[player],choice[computer]))
+    c=player-computer
+    if c==-1 or c==2:
+        print('\033[31;1m你赢了1局\033[0m')
+        player_win -= 1
+    elif c==0:
+        print('\033[32;1m平局\033[0m')
+    else:
+        print('\033[31;1m你输了1局\033[0m')
+        computer_win -= 1
 else:
-    print ("result is %d" % sum100)
+    print('游戏结束')
+    if computer_win == 0:
+        print('你输了')
+    else:
+        print('你赢了')
