@@ -63,3 +63,30 @@
 #     dst_f.close()
 # copy(sys.argv[1],sys.argv[2])
 #################################################
+# import my_model as my
+# from random import randint
+# print(my.hi)
+# my.print_star()
+# print(randint(1,10))
+################################################
+# import random
+# def key(num):
+#     for i in range(num):
+#         one_key=int(random.randint(48,123))
+#         print(random.choice(chr(one_key)),end='')
+#     print()
+# num=int(input('密码的位数：'))
+# if num > 0:
+#     key(num)
+##############################################
+import random
+import string
+key_poll=string.ascii_letters+string.digits
+while True:
+    num=int(input('密码的位数：'))
+    if num > 0:
+        user_key=random.sample(key_poll,num)
+        print(''.join(user_key))
+        break
+    else:
+        print('密码位数不合规，请重新输入')
