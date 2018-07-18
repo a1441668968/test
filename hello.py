@@ -143,33 +143,73 @@
 # else:
 #     print('正确的是',computer)
 ###########################################################3
-import random
-choice=['石头','剪刀','布']
-prompt = '''0.石头
-1.剪刀
-2.布
-请选择(0/1/2):'''
-computer_win=2
-player_win=2
-while computer_win and player_win:
-    computer=random.randint(0,2)
-    player=int(input(prompt))
-    if player not in [0,1,2]:
-        print('瞎选，默认是布')
-        player=2
-    print('你选择的是 %s, 计算机选择的是 %s' %(choice[player],choice[computer]))
-    c=player-computer
-    if c==-1 or c==2:
-        print('\033[31;1m你赢了1局\033[0m')
-        player_win -= 1
-    elif c==0:
-        print('\033[32;1m平局\033[0m')
-    else:
-        print('\033[31;1m你输了1局\033[0m')
-        computer_win -= 1
-else:
-    print('游戏结束')
-    if computer_win == 0:
-        print('你输了')
-    else:
-        print('你赢了')
+# import random
+# choice=['石头','剪刀','布']
+# prompt = '''0.石头
+# 1.剪刀
+# 2.布
+# 请选择(0/1/2):'''
+# computer_win=2
+# player_win=2
+# while computer_win and player_win:
+#     computer=random.randint(0,2)
+#     player=int(input(prompt))
+#     if player not in [0,1,2]:
+#         print('瞎选，默认是布')
+#         player=2
+#     print('你选择的是 %s, 计算机选择的是 %s' %(choice[player],choice[computer]))
+#     c=player-computer
+#     if c==-1 or c==2:
+#         print('\033[31;1m你赢了1局\033[0m')
+#         player_win -= 1
+#     elif c==0:
+#         print('\033[32;1m平局\033[0m')
+#     else:
+#         print('\033[31;1m你输了1局\033[0m')
+#         computer_win -= 1
+# else:
+#     print('游戏结束')
+#     if computer_win == 0:
+#         print('你输了')
+#     else:
+#         print('你赢了')
+############################################
+# astr='hello'
+# alist=[10,20,30]
+# atuple=('bob','tom','jack')
+# adict={'name':'lisi','age':15}
+# for st in astr:
+#     print(st)
+# for i in alist:
+#     print(i)
+# for name in atuple:
+#     print(name)
+# for key in adict:
+#     print('%s:%s' %(key,adict[key]))
+##############################################
+# sum2=0
+# for i in range(2,101,2):
+#     sum2+=i
+# print(sum2)
+###############################################
+# num=int(input('数列的长度'))
+# fib=[0,1]
+# for i in range(num-len(fib)):
+#     fib.append(fib[-1]+fib[-2])
+# print(fib)
+################################################
+# while True:
+#     num=int(input('请输入乘法表阶数，取值范围1-9：'))
+#     if num in range(1,10):
+#         for i in range(1,num+1):
+#             for j in range(1,i+1):
+#                 print('%s*%s=%s' %(j,i,i*j),end='\t')
+#             print()
+#         break
+#     else:
+#         print('输入错误，请重新输入')
+#################################################
+# [10+i for i in range(1,10,2)]
+# [10+i for i in range(1,10) if i % 2 ]
+# ['192.168.1.%s' %i for i in range(1,20)]
+##################################################
