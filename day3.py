@@ -169,22 +169,38 @@
 # alist.count(30)
 # alist.clear()
 ###############################################################
-alist = list()
+import os
+
 title = '''这是一个栈，拥有如下功能：
 1.压栈
 2.出栈
 3.查询
 请输入1/2/3选择你想使用的功能，输入end结束：'''
+alist = []
+
+def read_list():
+    if not os.path.exists('/tmp/alist'):
+        os.mknod('/tmp/alist')
+    with open('/tmp/alist','r') as f:
+        data=True
+        while data:
+            data=f.readline().rstrip('\n')
+            alist.append(data)
+    return alist
 
 
 def in_stacks():
     num = input('\033[31;1m请输入你要加入的值：\033[0m')
     alist.append(num)
-    return num
+    print('\033[32;1m%s压栈成功\033[0m' % num)
 
 
 def out_stacks():
-    return alist.pop()
+    if alist:
+        result = alist.pop()
+        print('\033[32;1m%s出栈成功\033[0m' % result)
+    else:
+        print('\033[31;1m空栈\033[0m')
 
 
 def select_stacks():
@@ -196,27 +212,27 @@ def select_stacks():
             print('\033[32;1m%s共有%s个，分别在：\033[0m' % (word, alist.count(word)))
             for index, value in enumerate(alist):
                 if value == word:
-                    print('\033[32;1m栈的第%s位\033[0m' % index+1)
+                    print('\033[32;1m栈的第%s位\033[0m' % index + 1)
         else:
-            print('未查询到')
+            print('\033[33;1m未查询到\033[0m')
+
+
+def save_stacks():
+    print('\033[32;1m保存数据中，请稍后\033[0m')
+    with open('/tmp/alist', 'w')as f:
+        for i in alist:
+            f.writelines(str(i) + '\n')
 
 
 if __name__ == '__main__':
+    alist=read_list()
     while True:
-        choice = input(title)
-        if choice == '1':
-            input_result = in_stacks()
-            print('\033[32;1m%s压栈成功\033[0m' % input_result)
-        elif choice == '2':
-            if alist:
-                result = out_stacks()
-                print('\033[32;1m%s出栈成功\033[0m' % result)
-            else:
-                print('\033[31;1m空栈\033[0m')
-                continue
-        elif choice == '3':
-            select_stacks()
-        elif choice == 'end':
+        choice = input(title).strip()
+        if choice == 'end':
+            save_stacks()
             break
-        else:
+        elif choice not in '123':
             print('\033[31;1m输入错误，请重新输入\033[0m')
+            continue
+        cmds = {'1': in_stacks, '2': out_stacks, '3': select_stacks}
+        cmds[choice]()
