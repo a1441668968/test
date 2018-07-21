@@ -183,38 +183,59 @@
 #######################################################
 import pickle
 import os
+import time
 
-title = '''1.收入,
-2.开销
+title = '''1.开销
+2.收入
 3.结束
 请在1/2/3中选择:'''
 
 
 def load_money():
     if os.path.exists('money'):
-        with open('money', 'r') as f:
+        with open('money', 'rb') as f:
             money = pickle.load(f)
     else:
-        money = 10000
+        money = 10000.0
     return money
 
 
-def use_money():
-    num = float(print('请输入开销的金额:'))
-    money
+def use_money(money):
+    num = float(input('请输入开销的金额:'))
+    money -= num
+    node = note()
+    atime = time.strftime('%Y.%m.%d')
+    astr='%-12s\t%-8s\t%-8s\t%-10s\t%-20s\n'%(atime,num,'',money,node)
+    save_node(astr)
+    return money
 
 
-def get_money():
-    num = float(print('请输入收入的金额:'))
+def get_money(money):
+    num = float(input('请输入收入的金额:'))
+    money += num
+    node = note()
+    atime = time.strftime('%Y.%m.%d')
+    astr='%-12s\t%-8s\t%-8s\t%-10s\t%-20s\n'%(atime,'',num,money,node)
+    save_node(astr)
+    return money
+
+
+def save_node(astr):
+    if not os.path.exists('node'):
+        with open('node','w') as f:
+            f.write('%-12s\t%-8s\t%-8s\t%-10s\t%-20s\n'%('时间','支出','收入','余额','说明'))
+    with open('node', 'a') as f:
+        f.write(astr)
 
 
 def note():
-    pass
+    node = input('请输入说明')
+    return node
 
 
 def save_money(money):
     print('保存记录中')
-    with open('money', 'w') as f:
+    with open('money', 'wb') as f:
         pickle.dump(money, f)
 
 
@@ -222,7 +243,7 @@ if __name__ == '__main__':
     money = load_money()
     cmds = {'1': use_money, '2': get_money}
     while True:
-        print('你当前拥有%8.1f', % money)
+        print('当前拥有%8.1f'% money)
         choice = input(title).strip()
         if choice == '3':
             save_money(money)
@@ -231,4 +252,4 @@ if __name__ == '__main__':
             print('输入错误,请重新输入')
             continue
         else:
-            cmds[choice]()
+            money=cmds[choice](money)
