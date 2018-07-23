@@ -205,7 +205,7 @@ def use_money(money):
     money -= num
     node = note()
     atime = time.strftime('%Y.%m.%d')
-    astr='%-12s\t%-8s\t%-8s\t%-10s\t%-20s\n'%(atime,num,'',money,node)
+    astr = '%-12s\t%-8s\t%-8s\t%-10s\t%-20s\n' % (atime, num, '', money, node)
     save_node(astr)
     return money
 
@@ -215,15 +215,15 @@ def get_money(money):
     money += num
     node = note()
     atime = time.strftime('%Y.%m.%d')
-    astr='%-12s\t%-8s\t%-8s\t%-10s\t%-20s\n'%(atime,'',num,money,node)
+    astr = '%-12s\t%-8s\t%-8s\t%-10s\t%-20s\n' % (atime, '', num, money, node)
     save_node(astr)
     return money
 
 
 def save_node(astr):
     if not os.path.exists('node'):
-        with open('node','w') as f:
-            f.write('%-12s\t%-8s\t%-8s\t%-10s\t%-20s\n'%('时间','支出','收入','余额','说明'))
+        with open('node', 'w') as f:
+            f.write('%-12s\t%-8s\t%-8s\t%-10s\t%-20s\n' % ('时间', '支出', '收入', '余额', '说明'))
     with open('node', 'a') as f:
         f.write(astr)
 
@@ -243,7 +243,7 @@ if __name__ == '__main__':
     money = load_money()
     cmds = {'1': use_money, '2': get_money}
     while True:
-        print('当前拥有%8.1f'% money)
+        print('当前拥有%8.1f' % money)
         choice = input(title).strip()
         if choice == '3':
             save_money(money)
@@ -252,4 +252,4 @@ if __name__ == '__main__':
             print('输入错误,请重新输入')
             continue
         else:
-            money=cmds[choice](money)
+            money = cmds[choice](money)
