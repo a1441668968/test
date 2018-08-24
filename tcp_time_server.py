@@ -7,7 +7,7 @@ class TcpTimeServer:
         self.addr = (host, port)
         self.server = socket.socket()
         self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.server.bind(self, addr)
+        self.server.bind(self.addr)
         self.server.listen(1)
 
     def chat(self, client_sock):

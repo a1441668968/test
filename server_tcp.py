@@ -1,16 +1,22 @@
 #!/usr/local/bin/python3
 import socket
-from time import strftime
 
 host = ''
 port = 12345
-addr = (host, port)
-server = socket.socket(type=socket.SOCK_DGRAM)
-server.bind(addr)
+address = (host, port)
+s = socket.socket()
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+s.bind(address)
+s.listen(1)
 while True:
-    data, client_addr = server.recvfrom(1024)
-    clock = strftime('%H:%M:%S')
-    data = data.decode('utf8')
-    data = '[%s] %s' % (clock, data)
-    server.sendto(data.encode('utf8'))
-server.close()
+    cli_sock, cli_address = s.accept()
+    print(cli_address)
+    while True:
+        data = cli_sock.recv(1024)
+        if data.strip() == b'end':
+            break
+        print(data.decode('utf8'))
+        data = input() + '\n'
+        cli_sock.send(data.encode('utf8'))
+    cli_sock.close()
+s.close()
