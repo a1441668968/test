@@ -1,5 +1,6 @@
 import socket
 import time
+import os
 
 
 class TcpTimeServer:
@@ -20,8 +21,21 @@ class TcpTimeServer:
 
     def mainloop(self):
         while True:
-            client_sock, client_addr = self.server.accept()
-            self.chat(client_sock)
+            try:
+                client_sock,client_addr=self.server.accept()
+            except KeyboardInterrupt:
+                break
+            pid=os.fork()
+            if pid:
+                while True:
+                    result=os.waitpid(-1,1)
+                    if result[0]==0:
+                        break
+                client_sock.close()
+            else:
+                self.server.close()
+                self.chat(client_sock)
+                exit()
         self.server.close()
 
 
