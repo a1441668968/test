@@ -36,6 +36,11 @@ def deploy(soft):
     tar = tarfile.open(soft, 'r:gz')
     tar.extractall()
     tar.close()
+    src = soft
+    dst = '/var/www/html/app'
+    if os.path.exists(dst):
+        os.unlink(dst)
+    os.link(src, dst)
 
 
 if __name__ == '__main__':
