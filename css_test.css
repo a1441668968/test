@@ -1,0 +1,118 @@
+body {
+    background: bisque;
+    color: blue;
+}
+
+hr {
+    color: black;
+}
+
+.warning {
+    color: red;
+}
+
+.import {
+    font-weight: bold;
+}
+
+h2.warning {
+    color: yellow;
+}
+
+p .myclass {
+    color: pink;
+}
+
+p, .myclass {
+    font-size: 50px;
+}
+
+#myid {
+    font-size: 20px;
+}
+
+h3#myid {
+    color: black;
+}
+
+a:link {
+    color: black;
+    font-size: 15pt;
+}
+
+a:visited {
+    color: pink;
+    font-size: 15pt;
+}
+
+a:hover {
+    font-size: 15pt;
+}
+
+a:active {
+    color: red;
+}
+
+div {
+    font-size: 1em;
+}
+
+#outer {
+    width: 200px;
+    height: 200px;
+    background: black;
+}
+
+#inner {
+    width: 100px;
+    height: 100px;
+    background: pink;
+    padding: 20px 30px;
+    border: 2px solid white;
+    margin: 5px 10px 10px;
+}
+
+#bottom {
+    width: 50px;
+    height: 50px;
+    background: white;
+    margin: 5px;
+}
+
+.header {
+    margin: auto;
+    width: 800px;
+    height: 200px;
+    background-color: pink;
+    background-repeat: repeat-x;
+}
+
+body {
+    background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536649072&di=5a93c77d0a4f056c357539dcf5a1befd&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.tom61.com%2Ffile%2Fshaoertuku%2Fxuexijianbihua%2F2016-11-28%2Fb3495af97fc9fc3882a1a30d42ca55b1.jpg");
+    background-repeat: repeat-y;
+    background-size: auto;
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    margin: auto;
+    border: 1px solid black;
+}
+
+h3 {
+    font-family: "AR PL UMing CN";
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    font-variant: all-small-caps;
+}
+
+#d1 {
+    padding: 20px;
+    text-align: ;
+    color: purple;
+    text-decoration: cyan;
+    line-height: 50px;
+}

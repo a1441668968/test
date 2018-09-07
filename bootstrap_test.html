@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+<div class="container-fluid">
+    <p>
+        hello world
+    </p>
+</div>
+<div class="container-fluid">
+    <p><a href="https://v3.bootcss.com/getting-started/#download" target="_blank">Bootstrap</a></p>
+    <form action="" role="form">
+        <div class="form-group">
+            user: <input type="text" class="form-control">
+            pass: <input type="password" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary">
+            <input type="submit" class="btn btn-danger">
+            <input type="submit" class="btn btn-success">
+            <input type="submit" class="btn btn-warning">
+            <input type="submit" class="btn btn-info">
+            <input type="submit" class="btn btn-default">
+            <input type="submit" class="btn btn-default btn-lg">
+            <input type="submit" class="btn btn-default btn-sm">
+            <input type="submit" class="btn btn-default btn-xs">
+        </div>
+    </form>
+    <p class="text-center text-info">hello</p>
+    <p class="text-right text-danger bg-success">hello</p>
+    <p class="text-left text-success bg-danger text-capitalize">hello</p>
+    <p class="text-warning text-nowrap">hello</p>
+</div>
+<div>
+    <ul class="nav navbar-nav">
+        <li><a href="#">linux</a></li>
+        <li><a href="#">windows</a></li>
+        <li><a href="#">mac</a></li>
+    </ul>
+</div>
+<div class="container">
+    <form action="" role="form" class="form-inline">
+        <div>
+            <label>电子邮件</label>
+            <input type="email" class="form-control" placeholder="请输入">
+        </div>
+        <div class="input-group">
+            <div class="input-group-addon">￥</div>
+            <input type="text" class="form-control">
+            <div class="input-group-addon">元</div>
+        </div>
+    </form>
+    <form action="" role="form" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-1 control-label">email:</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control">
+            </div>
+        </div>
+    </form>
+    <div class="disabled checkbox">
+        <input type="checkbox" disabled>java
+    </div>
+    <div class="checkbox-inline">
+        <label>
+            <input type="checkbox">jdk
+        </label>
+    </div>
+    <div class="checkbox-inline">
+        <label>
+            <input type="checkbox">jpk
+        </label>
+    </div>
+    <div class="radio disabled">
+        <input type="radio">python
+    </div>
+    <form role="form">
+        <div class="form-group">
+            <label>选择列表</label>
+            <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <label>可多选的选择列表</label>
+            <select multiple class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div>
+            <span class="glyphicon glyphicon-qrcode"></span>
+        </div>
+        <div>
+            <span class="glyphicon glyphicon-list"></span>
+        </div>
+        <div>
+            <span class="glyphicon glyphicon-camera"></span>
+        </div>
+    </form>
+    <img src="test.jpg" alt="" class="img-rounded">
+    <img src="test.jpg" alt="" class="img-circle">
+    <img src="test.jpg" alt="" class="img-thumbnail">
+    <table class="table table-bordered table-hover">
+        <tr class="success">
+            <th class="warning">名字</th>
+            <th>年龄</th>
+        </tr>
+        <tr class="info">
+            <td>张三</td>
+            <td class="danger">20</td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-lg-3 bg-primary">1</div>
+        <div class="col-md-2 bg-danger">1</div>
+        <div class="col-sm-4 bg-info">1</div>
+        <div class="col-xs-3 bg-success">1</div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#python" data-toggle="tab">python</a></li>
+        <li><a href="#java" data-toggle="tab">java</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="python">python</div>
+        <div class="tab-pane" id="java">java</div>
+    </div>
+</div>
+</body>
+</html>
