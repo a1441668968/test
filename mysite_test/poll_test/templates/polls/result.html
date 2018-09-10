@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结果</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <p>这是第{{ question_id }}个问题的结果</p>
+    <h1>{{ question.question_text }}</h1>
+    <table class="table table-bordered table-striped">
+        <tr class="info">
+            <td>选项</td>
+            <td>票数</td>
+        </tr>
+        {% for choice in question.choice_set.all %}
+            <tr>
+                <td>{{ choice.choice_text }}</td>
+                <td>{{ choice.votes }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/poll_test/">返回首页</a>
+</div>
+</body>
+</html>
