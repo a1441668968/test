@@ -3,8 +3,8 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="$MODULE_DIR$/mysite_test" />
-        <option name="settingsModule" value="mysite_test/settings.py" />
+        <option name="rootFolder" value="$MODULE_DIR$/newsite" />
+        <option name="settingsModule" value="newsite/settings.py" />
         <option name="manageScript" value="manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
         <option name="doNotUseTestRunner" value="false" />
