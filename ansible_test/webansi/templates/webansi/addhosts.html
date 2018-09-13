@@ -1,0 +1,37 @@
+{% extends 'webansi/base.html' %}
+{% block title %}添加主机{% endblock %}
+{% block content %}
+    <form action="" role="form" method="post" class="form-inline">
+        <div class="form-group">
+            <label class="control-label">主机</label>
+            <input type="text" name="host" class="form-control">
+        </div>
+        <div class="form-group">
+            <label class="control-label">IP</label>
+            <input type="text" name="ip" class="form-control">
+        </div>
+        <div class="form-group">
+            <label class="control-label">主机组</label>
+            <input type="text" name="group" class="form-control">
+        </div>
+        <input type="submit" class="btn-primary btn btn-sm" value="提交">
+    </form>
+    <table class="table table-bordered table-striped">
+        <tr class="info">
+            <th>主机组</th>
+            <th>主机名</th>
+        </tr>
+        {% for group in group %}
+            <tr>
+                <td>{{ group.hostgroup }}</td>
+                <td>
+                    <ul class="list-unstyled">
+                        {% for host in group.host_set.all %}
+                            <li>{{ host.hostname }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

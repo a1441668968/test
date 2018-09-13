@@ -1,7 +1,8 @@
+#! /usr/bin/env python3
 from sqlalchemy import create_engine, Column, String, Integer, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-import json
+import json,yaml
 
 engine = create_engine(
     'sqlite:////root/test/ansible_test/db.sqlite3',
@@ -30,12 +31,12 @@ class Host(Base):
 
 if __name__ == '__main__':
     session = Session()
-    qset = session.query(Group.hostgroup, Host.ip).join(Host, Group.id == Host.id)
+    qset = session.query(Group.hostgroup, Host.ip).join(Host, Group.id == Host.group_id)
     host_list = qset.all()
-    print(host_list)
-    # result = {}
-    # for group, ip in host_list:
-    #     if group not in result:
-    #         result[group] = {'hosts': []}
-    #     result[group]['hosts'].append(ip)
-    # print(json.dumps(result))
+    result = {}
+    for group, ip in host_list:
+        if group not in result:
+            result[group] = {'hosts': []}
+        result[group]['hosts'].append(ip)
+    print(json.dumps(result))
+    # print(yaml.dump(result))

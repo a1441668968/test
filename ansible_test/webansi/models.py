@@ -19,15 +19,15 @@ class Host(models.Model):
 
 
 class Module(models.Model):
-    model_name = models.CharField(max_length=50)
+    module_name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.model_name
+        return self.module_name
 
 
 class Args(models.Model):
-    arge_text = models.CharField(max_length=100)
+    args_text = models.CharField(max_length=100)
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.arge_text
+        return self.args_text

@@ -1,0 +1,96 @@
+{% extends 'webansi/base.html' %}
+
+{% block title %}执行任务{% endblock %}
+
+{% block content %}
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#host" data-toggle="tab">主机</a>
+        </li>
+        <li>
+            <a href="#group" data-toggle="tab">主机组</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="host">
+            <form action="" method="post" role="form">
+                <div class="form-group">
+                    <select name="ip" id="" class="form-control">
+                        {% for host in hosts %}
+                            <option value="{{ host.ip }}">
+                                {{ host.hostname }}:{{ host.ip }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <table class="table table-bordered table-striped">
+                    <tr class="info">
+                        <th>模块</th>
+                        <th>参数</th>
+                    </tr>
+                    {% for module in modules %}
+                        <tr>
+                            <td>
+                                <input type="radio" name="h_mod"
+                                       value="{{ module.module_name }}">{{ module.module_name }}
+                            </td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for args in module.args_set.all %}
+                                        <li>
+                                            <input type="radio" name="h_param"
+                                                   value="{{ args.args_text }}">{{ args.args_text }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-primary" value="执行">
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane" id="group">
+            <form action="" method="post" role="form">
+                <div class="form-group">
+                    <select name="hostgroup" id="" class="form-control">
+                        {% for group in groups %}
+                            <option value="{{ group.hostgroup }}">
+                                {{ group.hostgroup }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <table class="table table-bordered table-striped">
+                    <tr class="info">
+                        <th>模块</th>
+                        <th>参数</th>
+                    </tr>
+                    {% for module in modules %}
+                        <tr>
+                            <td>
+                                <input type="radio" name="g_mod"
+                                       value="{{ module.module_name }}">{{ module.module_name }}
+                            </td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for args in module.args_set.all %}
+                                        <li>
+                                            <input type="radio" name="g_paran" id=""
+                                                   value="{{ args.args_text }}">{{ args.args_text }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <div class="text-center">
+                    <input type="submit" name="" id="" class="btn btn-primary" value="执行">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
