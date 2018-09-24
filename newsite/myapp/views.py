@@ -37,3 +37,12 @@ def protect(request):
     if is_login:
         return render(request=request, template_name='protect.html')
     return redirect('home')
+
+
+def template(request):
+    user = 'zhangsan'
+    age = 25
+    friends = ['lisi', 'wangwu']
+    info = {'phone': '123456789', 'add': 'hangzhou'}
+    context = {'user': user, 'age': age, 'friends': friends, 'info': info}
+    return render(request=request, template_name='template.html', context=context)

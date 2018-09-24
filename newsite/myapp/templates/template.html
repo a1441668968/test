@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{ user }}今年{{ age }}岁了。
+    <hr>
+    {{ friends }}: {{ friends.0 }}, {{ friends.1 }}
+    <hr>
+    {{ info }}: {{ info.phone }}, {{ info.email }}
+    <hr>
+    {{ info.keys }}, {{ info.values }}, {{ info.items }}
+    <hr>
+    <ol>
+        {% for f in friends %}
+            <li>{{ f }}</li>
+        {% endfor %}
+    </ol>
+    <ul>
+        {% for f in friends %}
+            <li>{{ forloop.counter }}{{ f }}</li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for f in friends %}
+            <li>{{ forloop.counter0 }}{{ f }}</li>
+        {% endfor %}
+    </ul>
+    {% if age <= 22 %}
+        上学
+    {% elif age >= 60 %}
+        退休
+    {% else %}
+        上班
+    {% endif %}
+    <hr>
+    {{ user | capfirst }}:{{ friends|join:'+' }}
+{% endblock %}

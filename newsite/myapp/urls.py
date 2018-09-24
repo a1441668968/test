@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^(?P<name>\w+)/(?P<age>\d+)/', view=views.info, name='info'),
     url(r'^home/$', view=views.home, name='home'),
     url(r'^protect/$', view=views.protect, name='protect'),
-    url(r'^login/$', view=views.login, name='login')
+    url(r'^login/$', view=views.login, name='login'),
+    url(r'^template/$', views.template, name='template'),
 ]
